@@ -1,0 +1,77 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+
+# Environment variables (CRITICAL - keep secrets out of git!)
+.env
+.env.*
+!.env.example
+.env.local
+*.local
+
+# Database files - IMPORTANT!
+database.sqlite
+*.sqlite
+*.sqlite3
+*.db
+
+# Backend specific
+backend/.env
+backend/node_modules/
+backend/dist/
+backend/build/
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.backup
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Vercel
+.vercel
+.vercel/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Cache
+.cache/
+.parcel-cache/
+.turbo/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.tmp
+temp/
+
+# Database files
+database.sqlite
+*.sqlite
+*.sqlite3
+
+# TypeScript build info
+*.tsbuildinfo
