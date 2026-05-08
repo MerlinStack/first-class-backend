@@ -33,8 +33,7 @@ app.use('/api/', limiter);
 // Enable CORS
 app.use(
   cors({
-    origin:
-      'http://localhost:5173',
+    origin: 'http://localhost:5173',
     credentials: true,
   }),
 );
@@ -86,6 +85,9 @@ app.use((err, req, res, next) => {
     success: false,
     message: err.message || 'Internal Server Error',
   });
+});
+app.get('/', (req, res) => {
+  res.send('Welcome to the First Class Unique Boutique API!');
 });
 
 const PORT = process.env.PORT || 5000;
