@@ -69,6 +69,9 @@ app.get('/health', (req, res) => {
     uptime: process.uptime(),
   });
 });
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
 
 // 404 handler
 app.use('*', (req, res) => {
