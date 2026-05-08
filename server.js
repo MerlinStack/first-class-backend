@@ -31,24 +31,28 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 // Enable CORS
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://first-class-frontend.vercel.app/',
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin:
+      'http://localhost:5173',
+    credentials: true,
+  }),
+);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log('✅ MongoDB Connected successfully');
-  console.log(`Database: ${process.env.MONGODB_URI}`);
-})
-.catch(err => {
-  console.error('❌ MongoDB connection error:', err);
-  process.exit(1);
-});
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('✅ MongoDB Connected successfully');
+    console.log(`Database: ${process.env.MONGODB_URI}`);
+  })
+  .catch((err) => {
+    console.error('❌ MongoDB connection error:', err);
+    process.exit(1);
+  });
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -91,4 +95,4 @@ app.listen(PORT, () => {
   console.log(`🔗 API URL: http://localhost:${PORT}/api`);
 });
 
-module.exports = app; 
+module.exports = app;
